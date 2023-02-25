@@ -51,7 +51,7 @@ public class ProductService {
 	public ProductDTO insert(ProductDTO product) {
 		
 		Product productSave = new Product();
-		productSave.setName(product.getName());
+		copyDtoToEntity(product, productSave);
 		productSave = repository.save(productSave);
 		return new ProductDTO(productSave);
 		
@@ -82,7 +82,7 @@ public class ProductService {
 		entity.setDescription(dto.getDescription());
 		entity.setDate(dto.getDate());
 		entity.setImgUrl(dto.getImgUrl());
-		entity.setPrice(entity.getPrice());
+		entity.setPrice(dto.getPrice());
 		
 		entity.getCategories().clear();
 		

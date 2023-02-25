@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.dscatalog.dto.ProductDTO;
 import com.devsuperior.dscatalog.services.ProductService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
@@ -51,14 +53,14 @@ public class ProductController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO Product){
+	public ResponseEntity<ProductDTO> insert(@Valid @RequestBody ProductDTO Product){
 		
 		ProductDTO ProductDTO = service.insert(Product);
 		return ResponseEntity.status(HttpStatus.CREATED).body(ProductDTO);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO Product){
+	public ResponseEntity<ProductDTO> update(@PathVariable Long id, @Valid @RequestBody ProductDTO Product){
 		
 		ProductDTO ProductDTO = service.update(id, Product);
 		return ResponseEntity.status(HttpStatus.OK).body(ProductDTO);

@@ -9,6 +9,10 @@ import java.util.Set;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.entities.Product;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +25,15 @@ public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@Size(min = 5, max = 60, message = "Deve ter entre 5 e 60 caracteres")
+	@NotBlank(message = "Campo obrigatório")
 	private String name;
+	@NotBlank(message = "Campo obrigatório")
 	private String description;
+	@Positive(message = "O preço não pode ser negativo")
 	private Double price;
 	private String imgUrl;
+	@PastOrPresent
 	private Instant date;
 	private List<CategoryDTO> categories = new ArrayList<>();
 	
