@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dscatalog.dto.UserDTO;
 import com.devsuperior.dscatalog.dto.UserInsertDTO;
+import com.devsuperior.dscatalog.dto.UserUpdateDTO;
 import com.devsuperior.dscatalog.services.UserService;
 
 import jakarta.validation.Valid;
@@ -49,7 +50,7 @@ public class UserController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid  @RequestBody UserDTO user){
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid  @RequestBody UserUpdateDTO user){
 		
 		UserDTO userDTO = service.update(id, user);
 		return ResponseEntity.status(HttpStatus.OK).body(userDTO);
