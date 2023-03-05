@@ -2,6 +2,8 @@ package com.devsuperior.dscatalog.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -18,8 +20,6 @@ import com.devsuperior.dscatalog.repositories.CategoryRepository;
 import com.devsuperior.dscatalog.repositories.ProductRepository;
 import com.devsuperior.dscatalog.services.exceptions.ControllerNotFoundException;
 import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
-
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProductService {

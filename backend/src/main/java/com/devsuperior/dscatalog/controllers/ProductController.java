@@ -1,5 +1,7 @@
 package com.devsuperior.dscatalog.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,8 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dscatalog.dto.ProductDTO;
 import com.devsuperior.dscatalog.services.ProductService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/products")
