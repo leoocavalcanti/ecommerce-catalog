@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <C.Container>
       <C.Logo>
-        <h2>DS Catalog</h2>
+        <h2>Catálogo Produtos</h2>
       </C.Logo>
       <C.Categories>  
         <ul>
